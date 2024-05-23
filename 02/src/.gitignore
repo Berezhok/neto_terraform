@@ -1,3 +1,4 @@
+
 # Local .terraform directories and files
 **/.terraform/*
 .terraform*
@@ -11,4 +12,6 @@
 # own secret vars store.
 personal.auto.tfvars
 
-variavles.tf
+variables.tf
+
+vms_platform.tf
