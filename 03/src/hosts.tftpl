@@ -1,0 +1,21 @@
+[count]
+
+%{~ for i in count ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i.fqdn}
+
+%{~ endfor ~}
+
+[foreach]
+
+%{~ for i in foreach ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i.fqdn}
+
+%{~ endfor ~}
+
+
+[storage]
+
+%{~ for i in storage ~}
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=${i.fqdn}
+
+%{~ endfor ~}
