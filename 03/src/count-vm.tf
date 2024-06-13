@@ -13,16 +13,16 @@ resource "yandex_compute_instance" "count" {
   platform_id = "standard-v1"
 
   resources {
-    cores         = 2
-    memory        = 1
-    core_fraction = 20
+    cores         = var.default_vm.resources.cpu
+    memory        = var.default_vm.resources.ram
+    core_fraction = var.default_vm.resources.core_fraction
   }
 
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
-      type     = "network-hdd"
-      size     = 5
+      type     = var.default_vm.disktype
+      size     = var.default_vm.disksize
     }
   }
 

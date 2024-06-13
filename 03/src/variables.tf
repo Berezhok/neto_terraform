@@ -79,3 +79,30 @@ locals {
     ssh-keys = "${file("id_rsa.pub")}"
   }
 }
+
+variable "storage"{
+  type=object({name=string,disktype=string,disksize=number,resources=map(number)})
+  default={
+    name = "storage"
+    disktype = "network-hdd"
+    disksize = 15
+    resources = {
+      cpu=2
+      ram=1
+      core_fraction = 20  
+    }
+  }
+}
+
+variable "default_vm"{
+  type=object({disktype=string,disksize=number,resources=map(number)})
+  default={
+    disktype = "network-hdd"
+    disksize = 5
+    resources = {
+      cpu=2
+      ram=1
+      core_fraction = 20  
+    }
+  }
+}
